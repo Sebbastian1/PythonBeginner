@@ -29,11 +29,15 @@ def sumuj_do5(liczba):
 
 #Funkcja licząca czas
 
-def function_performance(func, arg):
-    start = time.perf_counter()
-    func(arg)
-    end = time.perf_counter()
-    return end - start
+def function_performance(func, arg, how_many_times = 1):
+    sum = 0
+
+    for i in range(0, how_many_times):
+        start = time.perf_counter()
+        func(arg)
+        end = time.perf_counter()
+        sum = sum + (end - start)
+    return sum
 
 print(function_performance(sumuj_do, 500000))
 print(function_performance(sumuj_do2, 500000))
